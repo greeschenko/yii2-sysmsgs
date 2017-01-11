@@ -1,0 +1,24 @@
+{
+    "name": "greeschenko/yii2-sysmsgs",
+    "description": "Highly variable system messages for users",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","system messages","messages"],
+    "license": "MIT",
+    "minimum-stability":"dev",
+    "authors": [
+        {
+            "name": "Oleksiy Hryshchenko",
+            "email": "greeschenko@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*",
+        "yiisoft/yii2-bootstrap": "*",
+        "rmrevin/yii2-fontawesome": "~2.12"
+    },
+    "autoload": {
+        "psr-4": {
+            "greeschenko\\sysmsgs\\": ""
+        }
+    }
+}
