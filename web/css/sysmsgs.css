@@ -1,0 +1,52 @@
+.msgbtn {
+    cursor: pointer;
+    color: #005e96;
+    opacity: 0.5;
+}
+
+.sysmsgsres {
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+.sysmsgsres .alert,
+.sysmsgarcivelist .alert {
+    margin-bottom: 5px;
+}
+
+.blink {
+    -webkit-animation: blink 2s linear infinite;
+    animation: blink 2s linear infinite;
+    font-weight: bold;
+    color: color: #F00;
+}
+
+@-webkit-keyframes blink {
+    0% {
+        color: #F00;
+    }
+    25% {
+        color: #FFF2F2;
+    }
+    50% {
+        color: #F00;
+    }
+    100% {
+        color: #F00;
+    }
+}
+
+@keyframes blink {
+    0% {
+        color: #F00;
+    }
+    25% {
+        color: #FFF2F2;
+    }
+    50% {
+        color: #F00;
+    }
+    100% {
+        color: #F00;
+    }
+}

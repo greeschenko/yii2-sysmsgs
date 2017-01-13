@@ -21,7 +21,7 @@ class MyController extends Controller
                     [
                         'allow' => true,
                         'actions'=>['get-count','get-all','check-read','archive'],
-                        'roles' => ['?'],
+                        'roles' => ['@'],
                     ],
                 ],
             ],
