@@ -22,6 +22,7 @@ class SysmsgsWidget extends Widget
     {
         echo Html::tag('span',
             Html::tag('i','',['class' => 'fa fa-envelope-o'])
+            .' '
             .Html::tag('span',
                 Html::tag('i','',['class' => 'fa fa-spinner fa-pulse']),
                 ['id' => 'msgcount']),
@@ -33,7 +34,7 @@ class SysmsgsWidget extends Widget
         ]);
         echo Html::tag(
             'div',
-            Html::a('Архів повідомлень','/user/sysmsg-archive'),
+            Html::a('Архів повідомлень','/sysmsgs/my/archive'),
             [
                 'class' => 'sysmsgsshowall text-center',
                 'style' => 'display:none;'
@@ -42,9 +43,7 @@ class SysmsgsWidget extends Widget
         echo Html::tag('div','
             <div class="alert alert-{{type}}">
                 <a href="#" class="close" data-id="{{id}}" data-dismiss="alert" aria-label="close">&times;</a>
-                <strong>
-                    {{date}}
-                </strong>
+                <strong>{{date}}</strong>
                 {{content}}
             </div>
         ',['class' => 'sysmsgsors hidden']);
