@@ -1,37 +1,38 @@
 <?php
 
 namespace greeschenko\sysmsgs\models;
+
 use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "{{%sysmsgs}}".
  *
- * @property integer $id
+ * @property int $id
  * @property string $content
- * @property integer $user_id
- * @property integer $created_at
- * @property integer $updated_at
- * @property integer $status
- * @property integer $type
+ * @property int $user_id
+ * @property int $created_at
+ * @property int $updated_at
+ * @property int $status
+ * @property int $type
  */
 class Sysmsgs extends \yii\db\ActiveRecord
 {
-    const STATUS_NEW=1;
-    const STATUS_READ=2;
-    const STATUS_BLOCK=3;
+    const STATUS_NEW = 1;
+    const STATUS_READ = 2;
+    const STATUS_BLOCK = 3;
 
-    const TYPE_DEFAULT=1;
-    const TYPE_SUCCSESS=2;
-    const TYPE_DANGER=3;
+    const TYPE_DEFAULT = 1;
+    const TYPE_SUCCSESS = 2;
+    const TYPE_DANGER = 3;
 
     public $typelist = [
-        self::TYPE_DEFAULT=>'info',
-        self::TYPE_SUCCSESS=>'success',
-        self::TYPE_DANGER=>'danger',
+        self::TYPE_DEFAULT => 'info',
+        self::TYPE_SUCCSESS => 'success',
+        self::TYPE_DANGER => 'danger',
     ];
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function tableName()
     {
@@ -39,7 +40,7 @@ class Sysmsgs extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function behaviors()
     {
@@ -49,19 +50,19 @@ class Sysmsgs extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
         return [
-            [['content', 'user_id','type'], 'required'],
+            [['content', 'user_id', 'type'], 'required'],
             [['user_id', 'created_at', 'updated_at', 'status', 'type'], 'integer'],
             [['content'], 'string', 'max' => 255],
         ];
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function attributeLabels()
     {
@@ -76,14 +77,15 @@ class Sysmsgs extends \yii\db\ActiveRecord
         ];
     }
 
-    public static function Push($msg,$user_id,$type=self::TYPE_DEFAULT)
+    public static function Push($msg, $user_id, $type = self::TYPE_DEFAULT, $group = '')
     {
-        $model = new static;
+        $model = new static();
         $model->content = $msg;
         $model->user_id = $user_id;
         $model->status = self::STATUS_NEW;
         $model->type = $type;
-        if ( $model->save() ) {
+        $model->group = $group;
+        if ($model->save()) {
             return true;
         }
 
