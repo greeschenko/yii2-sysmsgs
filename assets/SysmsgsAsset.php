@@ -8,10 +8,10 @@ class SysmsgsAsset extends AssetBundle
 {
     public $sourcePath = '@greeschenko/sysmsgs/web';
     public $css = [
-        'css/sysmsgs.css',
+        'css/sysmsgs.min.css',
     ];
     public $js = [
-        'js/sysmsgs.js',
+        'js/sysmsgs.min.js',
     ];
     public $depends = [
         'yii\web\JqueryAsset',

@@ -11,10 +11,18 @@
             "email": "greeschenko@gmail.com"
         }
     ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "git@github.com:greeschenko/hatajs.git"
+
+        }
+    ],
     "require": {
         "yiisoft/yii2": "*",
         "yiisoft/yii2-bootstrap": "*",
-        "fortawesome/font-awesome": "~4.7"
+        "fortawesome/font-awesome": "~4.7",
+        "greeschenko/hatajs": "*"
     },
     "autoload": {
         "psr-4": {

@@ -9,7 +9,8 @@ use greeschenko\sysmsgs\assets\SysmsgsAsset;
 class SysmsgsWidget extends Widget
 {
     public $id;
-    public $groupcode;
+    public $groupcode = '';
+    public $reselement;
     public $data;
     public $options = [];
 
@@ -20,33 +21,14 @@ class SysmsgsWidget extends Widget
 
     public function run()
     {
-        echo Html::tag('span',
-            Html::tag('i','',['class' => 'fa fa-envelope-o'])
-            .' '
-            .Html::tag('span',
-                Html::tag('i','',['class' => 'fa fa-spinner fa-pulse']),
-                ['id' => 'msgcount']),
-            ['class' => 'msgbtn']);
+        $options = [
+            'id' => $this->getId(),
+            'class' => 'sysmsgs',
+            'data-res' => $this->reselement,
+            'data-group' => $this->groupcode,
+        ];
 
-        echo Html::tag('div','',[
-            'class' => 'sysmsgsres',
-            'style' => 'display:none;'
-        ]);
-        echo Html::tag(
-            'div',
-            Html::a('Архів повідомлень','/sysmsgs/my/archive'),
-            [
-                'class' => 'sysmsgsshowall text-center',
-                'style' => 'display:none;'
-            ]
-        );
-        echo Html::tag('div','
-            <div class="alert alert-{{type}}">
-                <a href="#" class="close" data-id="{{id}}" data-dismiss="alert" aria-label="close">&times;</a>
-                <strong>{{date}}</strong>
-                {{content}}
-            </div>
-        ',['class' => 'sysmsgsors hidden']);
+        echo Html::tag('div', '', $options);
 
         $this->registerClientScript();
     }
