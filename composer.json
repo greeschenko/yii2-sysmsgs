@@ -14,7 +14,7 @@
     "repositories": [
         {
             "type": "git",
-            "url": "git@github.com:greeschenko/hatajs.git"
+            "url": "https://github.com/greeschenko/hatajs.git"
 
         }
     ],
