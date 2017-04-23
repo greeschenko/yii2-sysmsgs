@@ -57,7 +57,7 @@ class Sysmsgs extends \yii\db\ActiveRecord
         return [
             [['content', 'user_id', 'type'], 'required'],
             [['user_id', 'created_at', 'updated_at', 'status', 'type'], 'integer'],
-            [['content'], 'string', 'max' => 255],
+            [['content', 'group'], 'string', 'max' => 255],
         ];
     }
 

@@ -1,0 +1,82 @@
+$activecolor: rgba(grey, 0.1);
+
+.sysmsgsbtns
+  display: flex
+
+.sysmsgs
+  display: flex
+  cursor: pointer
+  transition: all 0.5s ease 0.1s
+
+  &:nth-child(odd)
+    background: rgba(grey, 0.5)
+
+  &:nth-child(even)
+    background: rgba(grey, 0.3)
+
+  div
+    line-height: 2em
+    text-align: center
+
+  .icon
+    width: 2em
+    height: 2em
+
+  .title
+
+  .count
+    padding: 0 10px
+    font-weight: bold
+
+.sysmsgs:hover
+  background: rgba(grey, 0.8)
+
+.sysmsgs.active
+  background: $activecolor
+
+.sysmsgsres
+  background: $activecolor
+  margin-bottom: 1em
+
+.sysmsgsres.active
+  padding: 1em
+
+.sysmsgsitem
+  display: flex
+  justify-content: space-between
+  background: white
+  margin-bottom: 0.5em
+  box-shadow: 2px 2px 7px rgba(black, 0.3)
+  border: 1px solid rgba(grey, 0.4)
+  border-left-width: 6px
+
+  div
+    line-height: 2em
+
+  .date
+    min-width: 8em
+    text-align: center
+    color: rgba(grey, 0.8);
+
+  .content
+    flex-grow: 1
+    padding: 0 1em
+
+  .closebtn
+    width: 2em
+    text-align: center
+    color: rgba(black, 0.4)
+    cursor: pointer
+    &:hover
+      color: white
+      background: tomato
+
+.sysmsgsitem.info
+  border-color: rgba(blue, 0.5)
+
+.sysmsgsitem.success
+  border-color: rgba(lime, 0.5)
+
+.sysmsgsitem.danger
+  border-color: rgba(tomato, 0.5)
+

@@ -17,5 +17,6 @@ class SysmsgsAsset extends AssetBundle
         'yii\web\JqueryAsset',
         'yii\bootstrap\BootstrapAsset',
         'greeschenko\sysmsgs\assets\FontsAsset',
+        'greeschenko\sysmsgs\assets\HatajsAsset',
     ];
 }

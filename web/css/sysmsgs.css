@@ -1,52 +1,73 @@
-.msgbtn {
-    cursor: pointer;
-    color: #005e96;
-    opacity: 0.5;
-}
+.sysmsgsbtns {
+  display: -ms-flexbox;
+  display: flex; }
+
+.sysmsgs {
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  transition: all 0.5s ease 0.1s; }
+  .sysmsgs:nth-child(odd) {
+    background: rgba(128, 128, 128, 0.5); }
+  .sysmsgs:nth-child(even) {
+    background: rgba(128, 128, 128, 0.3); }
+  .sysmsgs div {
+    line-height: 2em;
+    text-align: center; }
+  .sysmsgs .icon {
+    width: 2em;
+    height: 2em; }
+  .sysmsgs .count {
+    padding: 0 10px;
+    font-weight: bold; }
+
+.sysmsgs:hover {
+  background: rgba(128, 128, 128, 0.8); }
+
+.sysmsgs.active {
+  background: rgba(128, 128, 128, 0.1); }
 
 .sysmsgsres {
-    margin-top: 10px;
-    font-size: 0.9em;
-}
+  background: rgba(128, 128, 128, 0.1);
+  margin-bottom: 1em; }
 
-.sysmsgsres .alert,
-.sysmsgarcivelist .alert {
-    margin-bottom: 5px;
-}
+.sysmsgsres.active {
+  padding: 1em; }
 
-.blink {
-    -webkit-animation: blink 2s linear infinite;
-    animation: blink 2s linear infinite;
-    font-weight: bold;
-    color: color: #F00;
-}
+.sysmsgsitem {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  background: white;
+  margin-bottom: 0.5em;
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(128, 128, 128, 0.4);
+  border-left-width: 6px; }
+  .sysmsgsitem div {
+    line-height: 2em; }
+  .sysmsgsitem .date {
+    min-width: 8em;
+    text-align: center;
+    color: rgba(128, 128, 128, 0.8); }
+  .sysmsgsitem .content {
+    -ms-flex-positive: 1;
+        flex-grow: 1;
+    padding: 0 1em; }
+  .sysmsgsitem .closebtn {
+    width: 2em;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.4);
+    cursor: pointer; }
+    .sysmsgsitem .closebtn:hover {
+      color: white;
+      background: tomato; }
 
-@-webkit-keyframes blink {
-    0% {
-        color: #F00;
-    }
-    25% {
-        color: #FFF2F2;
-    }
-    50% {
-        color: #F00;
-    }
-    100% {
-        color: #F00;
-    }
-}
+.sysmsgsitem.info {
+  border-color: rgba(0, 0, 255, 0.5); }
 
-@keyframes blink {
-    0% {
-        color: #F00;
-    }
-    25% {
-        color: #FFF2F2;
-    }
-    50% {
-        color: #F00;
-    }
-    100% {
-        color: #F00;
-    }
-}
+.sysmsgsitem.success {
+  border-color: rgba(0, 255, 0, 0.5); }
+
+.sysmsgsitem.danger {
+  border-color: rgba(255, 99, 71, 0.5); }

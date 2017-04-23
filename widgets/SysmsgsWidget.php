@@ -10,6 +10,8 @@ class SysmsgsWidget extends Widget
 {
     public $id;
     public $groupcode = '';
+    public $icon = 'fa-envelope-o';
+    public $title = '';
     public $reselement;
     public $data;
     public $options = [];
@@ -26,6 +28,8 @@ class SysmsgsWidget extends Widget
             'class' => 'sysmsgs',
             'data-res' => $this->reselement,
             'data-group' => $this->groupcode,
+            'data-title' => $this->title,
+            'data-icon' => $this->icon,
         ];
 
         echo Html::tag('div', '', $options);

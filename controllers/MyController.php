@@ -10,7 +10,7 @@ use greeschenko\sysmsgs\models\Sysmsgs;
 class MyController extends Controller
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function behaviors()
     {
@@ -20,7 +20,7 @@ class MyController extends Controller
                 'rules' => [
                     [
                         'allow' => true,
-                        'actions'=>['get-count','get-all','check-read','archive'],
+                        'actions' => ['get-count', 'get-all', 'check-read', 'archive'],
                         'roles' => ['@'],
                     ],
                 ],
@@ -28,13 +28,14 @@ class MyController extends Controller
         ];
     }
 
-    public function actionGetCount()
+    public function actionGetCount($group)
     {
         $res = [];
         if (Yii::$app->request->isAjax and !Yii::$app->user->isGuest) {
             $count = Sysmsgs::find()
-                ->where(['user_id'=> Yii::$app->user->identity->id])
-                ->andWhere(['status'=>Sysmsgs::STATUS_NEW])
+                ->where(['user_id' => Yii::$app->user->identity->id])
+                ->andWhere(['status' => Sysmsgs::STATUS_NEW])
+                ->andWhere(['group' => $group])
                 ->count();
 
             $res['count'] = $count;
@@ -47,21 +48,22 @@ class MyController extends Controller
         return false;
     }
 
-    public function actionGetAll()
+    public function actionGetAll($group)
     {
         $res = [];
         if (Yii::$app->request->isAjax and !Yii::$app->user->isGuest) {
             $data = Sysmsgs::find()
-                ->where(['user_id'=> Yii::$app->user->identity->id])
-                ->andWhere(['status'=>Sysmsgs::STATUS_NEW])
+                ->where(['user_id' => Yii::$app->user->identity->id])
+                ->andWhere(['status' => Sysmsgs::STATUS_NEW])
+                ->andWhere(['group' => $group])
                 ->all();
 
             foreach ($data as $one) {
-                $res['items'][]=[
-                    'id'=>$one->id,
-                    'content'=>$one->content,
-                    'type'=>$one->typelist[$one->type],
-                    'date'=>Yii::$app->formatter->asDate($one->created_at, 'medium'),
+                $res['items'][] = [
+                    'id' => $one->id,
+                    'content' => $one->content,
+                    'type' => $one->typelist[$one->type],
+                    'date' => Yii::$app->formatter->asDate($one->created_at, 'medium'),
                 ];
             }
 
@@ -79,7 +81,7 @@ class MyController extends Controller
         if (Yii::$app->request->isAjax and !Yii::$app->user->isGuest) {
             $data = Sysmsgs::findOne($id);
             $data->status = Sysmsgs::STATUS_READ;
-            if ( $data->save() ) {
+            if ($data->save()) {
                 return true;
             }
         }
@@ -90,9 +92,9 @@ class MyController extends Controller
     public function actionArchive()
     {
         $data = Sysmsgs::find()
-            ->where(['user_id'=> Yii::$app->user->identity->id])
+            ->where(['user_id' => Yii::$app->user->identity->id])
             ->all();
 
-        return $this->render('archive',['data'=>$data]);
+        return $this->render('archive', ['data' => $data]);
     }
 }
