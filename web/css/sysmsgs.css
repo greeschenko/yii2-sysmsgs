@@ -1,16 +1,15 @@
 .sysmsgsbtns {
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
 
 .sysmsgs {
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
-  transition: all 0.5s ease 0.1s; }
-  .sysmsgs:nth-child(odd) {
-    background: rgba(128, 128, 128, 0.5); }
-  .sysmsgs:nth-child(even) {
-    background: rgba(128, 128, 128, 0.3); }
+  transition: all 0.5s ease 0.1s;
+  border: 1px solid rgba(0, 0, 0, 0.2); }
   .sysmsgs div {
     line-height: 2em;
     text-align: center; }
@@ -22,10 +21,11 @@
     font-weight: bold; }
 
 .sysmsgs:hover {
-  background: rgba(128, 128, 128, 0.8); }
+  background: rgba(128, 128, 128, 0.1); }
 
 .sysmsgs.active {
-  background: rgba(128, 128, 128, 0.1); }
+  background: rgba(128, 128, 128, 0.1);
+  border: none; }
 
 .sysmsgsres {
   background: rgba(128, 128, 128, 0.1);

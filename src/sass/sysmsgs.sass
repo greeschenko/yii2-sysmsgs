@@ -2,17 +2,13 @@ $activecolor: rgba(grey, 0.1);
 
 .sysmsgsbtns
   display: flex
+  flex-wrap: wrap
 
 .sysmsgs
   display: flex
   cursor: pointer
   transition: all 0.5s ease 0.1s
-
-  &:nth-child(odd)
-    background: rgba(grey, 0.5)
-
-  &:nth-child(even)
-    background: rgba(grey, 0.3)
+  border: 1px solid rgba(black, 0.2)
 
   div
     line-height: 2em
@@ -29,10 +25,11 @@ $activecolor: rgba(grey, 0.1);
     font-weight: bold
 
 .sysmsgs:hover
-  background: rgba(grey, 0.8)
+  background: $activecolor
 
 .sysmsgs.active
   background: $activecolor
+  border: none
 
 .sysmsgsres
   background: $activecolor
