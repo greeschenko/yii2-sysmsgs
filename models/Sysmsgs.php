@@ -87,6 +87,8 @@ class Sysmsgs extends \yii\db\ActiveRecord
         $model->group = $group;
         if ($model->save()) {
             return true;
+        } else {
+            throw new \yii\web\HttpException(501, 'sysmsg save error '.json_encode($model->errors));
         }
 
         return false;
