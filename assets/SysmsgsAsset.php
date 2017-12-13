@@ -11,7 +11,7 @@ class SysmsgsAsset extends AssetBundle
         'css/sysmsgs.min.css?v=0.0.1',
     ];
     public $js = [
-        'js/sysmsgs.min.js',
+        'js/sysmsgs.min.js?v=0.0.2',
     ];
     public $depends = [
         'yii\web\JqueryAsset',
