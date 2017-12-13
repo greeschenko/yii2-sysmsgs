@@ -92,7 +92,7 @@ $('.sysmsgs').each(function(index) {
                         a.el.find('.count').html(data.count);
                     },
                 });
-            }, 2000);
+            }, 10000);
         }
     });
 });
