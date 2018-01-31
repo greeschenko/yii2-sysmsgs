@@ -63,7 +63,7 @@ class MyController extends Controller
                     'id' => $one->id,
                     'content' => $one->content,
                     'type' => $one->typelist[$one->type],
-                    'date' => Yii::$app->formatter->asDate($one->created_at, 'medium'),
+                    'date' => Yii::$app->formatter->asDatetime($one->created_at, 'medium'),
                 ];
             }
 
