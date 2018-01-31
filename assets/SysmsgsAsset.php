@@ -8,7 +8,7 @@ class SysmsgsAsset extends AssetBundle
 {
     public $sourcePath = '@greeschenko/sysmsgs/web';
     public $css = [
-        'css/sysmsgs.min.css?v=0.0.1',
+        'css/sysmsgs.min.css?v=0.0.2',
     ];
     public $js = [
         'js/sysmsgs.min.js?v=0.0.2',

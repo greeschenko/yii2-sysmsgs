@@ -47,7 +47,7 @@
   .sysmsgsitem div {
     line-height: 2em; }
   .sysmsgsitem .date {
-    min-width: 8em;
+    min-width: 12em;
     text-align: center;
     color: rgba(128, 128, 128, 0.8); }
   .sysmsgsitem .content {
