@@ -56,6 +56,7 @@ class MyController extends Controller
                 ->where(['user_id' => Yii::$app->user->identity->id])
                 ->andWhere(['status' => Sysmsgs::STATUS_NEW])
                 ->andWhere(['group' => $group])
+                ->orderBy('created_at DESC')
                 ->all();
 
             foreach ($data as $one) {
